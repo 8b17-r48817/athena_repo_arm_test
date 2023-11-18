@@ -1,10 +1,11 @@
 #!/bin/bash
 
-REPO_NAME="athena-repository"
+REPO_NAME="athena"
 
-rm $REPO_NAME*
+rm *.db *.db.sig *.db.tar.gz *.db.tar.gz.sig *.files *.files.sig *.files.tar.gz *.files.tar.gz.sig
 
 repo-add --verify --sign -R $REPO_NAME.db.tar.gz *.pkg.tar.zst
+repo-add --verify --sign -R $REPO_NAME-repository.db.tar.gz *.pkg.tar.zst
 
 echo "####################################"
 echo "Repo Updated!!"
